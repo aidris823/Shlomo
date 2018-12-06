@@ -20,22 +20,22 @@ int main(){
   }
   printf("Would you like to modify the data? [y/k] (y = יאָ, k =קיין)\n");
   char * s;
-  s = scanf(s);
-  if (s == 'y'){
+  fgets(s,200,stdin);
+  if (*s == 'y'){
     printf("Okay cool just enter the new data: \n");
     fgets(data,200,stdin);
     printf("Current data modified as: %s \n",data);
   }
-  if (s == 'k'){
+  if (*s == 'k'){
     printf("Fine, then don't.\n");
   }
   printf("Delete a segment? [y/k]\n");
-  s = scanf(s);
-  if (s == 'y'){
+  fgets(s,200,stdin);
+  if (*s == 'y'){
     shmctl(shmd,IPC_RMID,0);
     printf("Deleted.  Current data: %s\n",data);
   }
-  if (s == 'k'){
+  if (*s == 'k'){
     printf("Fine, then don't.");
   }
   return 0;
